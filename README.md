@@ -67,6 +67,7 @@ Null values were handled, and active subscriptions were calculated using the cur
 
 4. Modeling
 The feature-engineered dataset was exported from Snowflake and loaded into a Jupyter Notebook.
+
 Steps:
 
 Data Preprocessing:
@@ -77,7 +78,7 @@ Class Imbalance Handling:
 Used SMOTE (Synthetic Minority Oversampling Technique) to balance the dataset.
 
 Model Training:
-Trained multiple models, including Logistic Regression.
+Trained multiple models, including Logistic Regression, Random Forest, and XGBoost.
 
 Evaluation:
 Evaluated models using metrics like accuracy, precision, recall, and F1-score.
@@ -107,13 +108,13 @@ For creating interactive dashboards and visualizations.
 Modeling Insights
 
 
-Best Model: SMOTE achieved the highest performance with an accuracy of 95%.
+Best Model: Random Forest achieved the highest performance with an accuracy of 95%.
 
 
 Key Features Driving Churn:
 
 Low feature usage.
-Short subscription durations.
+Certain geographies.
 Low monthly logins.
 
 
@@ -124,43 +125,66 @@ Revenue at Risk: Identified high-risk customers contributing to significant reve
 
 
 Visualizations and Insights
-The following visualizations were created in Power BI:
 
 1. Churn Distribution
-Visualization: Bar chart.
-Insight: Shows the proportion of churned vs. non-churned customers.
+Analysis:
+The donut chart reveals that 3.28% of customers are predicted to churn, while 96.72% are likely to stay. Although the churn percentage appears small, it represents a significant revenue risk, especially for high-value customers. 
+This highlights the importance of focusing on the small subset of customers at risk to prevent revenue loss.
 
-2. Churn by Segment
-Visualization: Stacked bar chart.
-Insight: Growth customers have the highest churn rate.
+Recommendations:
+(i)   Proactive Retention Campaigns: Launch targeted campaigns for the 3.28% of customers predicted to churn. 
+(ii)  Use personalized offers, discounts, or enhanced support to retain them. 
+(iii) Customer Segmentation: Further segment the churned customers by industry, geography, and plan to identify patterns and tailor interventions. 
+(iv)  Monitor Trends: Regularly track churn rates to identify any upward trends and act swiftly. 
 
-3. Revenue at Risk by Country
-Visualization: Tree map.
-Insight: The USA and UK contribute the most to revenue at risk.
+2. Churn by Plan
+Analysis:
+The bar chart shows that the Growth plan has the highest number of churned customers, followed by the Pro and Enterprise plans.
+This suggests that customers on the Growth plan may not be finding sufficient value or may be outgrowing the plan.
 
-4. Risk Level Breakdown
-Visualization: Pie chart.
-Insight: 30% of customers are in the high-risk category.
+Recommendations:
+(i)   Plan Optimization: Evaluate the Growth plan's features and pricing. Consider adding value through additional features or better support. 
+(ii)  Upsell Opportunities: Identify customers on the Growth plan who are at risk of churn and offer them tailored upsell opportunities to the Pro or Enterprise plans. 
+(iii) Customer Feedback: Conduct surveys or interviews with Growth plan customers to understand their pain points and address them.
 
-5. Feature Usage vs. Churn
-Visualization: Scatter plot.
-Insight: Customers with low feature usage are more likely to churn.
+3. Churn by Segment
+Analysis:
+The SMB (Small and Medium Businesses) segment has the highest churn rate, followed by Mid-Market and Enterprise.
+SMBs are often more price-sensitive and may churn due to cost or lack of perceived value.
 
+Recommendations:
+(i)   Cost-Effective Solutions: Offer SMBs cost-effective solutions or flexible payment plans to reduce churn. 
+(ii)  Value Demonstration: Provide SMBs with case studies, ROI calculators, or success stories to demonstrate the value of the product. 
+(iii) Dedicated Support: Assign account managers or provide enhanced support to SMBs to build stronger relationships.
 
-Business Recommendations
+4. MRR at Risk by Industry
+Analysis:
+The Retail and Professional Services industries have the highest MRR at risk, followed by Logistics and Real Estate.
+This indicates that these industries may face unique challenges or may not be fully utilizing the product.
 
-1. Target High-Risk Customers:
-Focus retention efforts on customers in the high-risk category.
-Offer incentives or personalized support to reduce churn.
+Recommendations:
+(i)   Industry-Specific Solutions: Develop tailored solutions or features for high-risk industries like Retail and Professional Services. 
+(ii)  Customer Success Programs: Assign industry-specific customer success managers to help these customers maximize the value of the product. 
+(iii) Partnerships: Collaborate with industry associations or thought leaders to build trust and credibility. 
 
-2. Improve Feature Adoption:
-Educate customers on underutilized features.
-Provide training sessions or tutorials.
+5. Total MRR at Risk by Geographies
+Analysis:
+The Treemap highlights that the USA has the highest MRR at risk, followed by the UK, Brazil, and India.
+This suggests that these geographies should be prioritized for churn prevention efforts.
 
-3. Monitor Key Metrics:
-Track monthly logins and feature usage to identify at-risk customers early.
+Recommendations:
+(i)   Localized Strategies: Develop region-specific retention strategies, considering cultural and economic factors. 
+(ii)  Regional Teams: Strengthen regional customer success teams to provide localized support and build stronger relationships. 
+(iii) Market Research: Conduct market research in high-risk geographies to understand customer needs and address them effectively.
 
-4. Optimize Subscription Plans:
-Offer flexible plans to retain customers with short subscription durations.
+6. MRR at Risk Globally
+Analysis:
+The global map visualization shows that North America and Europe have the highest concentration of MRR at risk.
+This aligns with the Treemap insights and emphasizes the need for a global yet localized approach.
 
-Final Dataset: data/final_dataset.csv
+Recommendations:
+(i)   Global Retention Task Force: Establish a task force to focus on high-risk regions and coordinate efforts across teams. 
+(ii)  Data-Driven Insights: Use predictive analytics to identify early warning signs of churn in these regions and act proactively. 
+(iii) Customer Advocacy Programs: Build customer advocacy programs in these regions to strengthen loyalty and reduce churn.
+
+Final Dataset: data/final_churn_prediction.csv
